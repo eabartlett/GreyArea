@@ -20,15 +20,15 @@
         android:layout_below="@id/select_image_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_launcher"
+        android:drawableLeft="@drawable/ic_photo_gallery"
         android:text="@string/select_from_gallery"
-        android:onClick="selectFromGallery" />
+        android:onClick="selectPreloadedIntent" />
 	<Button
         android:id="@+id/take_photo"
         android:layout_below="@id/from_gallery"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_launcher"
+        android:drawableLeft="@drawable/iphone_camera_icon"
         android:text="@string/take_photo"
         android:onClick="takePicture" />
 </RelativeLayout>

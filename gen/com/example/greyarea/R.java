@@ -8,7 +8,44 @@
 package com.example.greyarea;
 
 public final class R {
+    public static final class array {
+        public static final int brush_size=0x7f060000;
+        public static final int to_color=0x7f060001;
+    }
     public static final class attr {
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int exampleColor=0x7f010002;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int exampleDimension=0x7f010001;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int exampleDrawable=0x7f010003;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int exampleString=0x7f010000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -21,31 +58,57 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int abstract_art=0x7f020000;
+        public static final int abstract_art_thumb=0x7f020001;
+        public static final int drink=0x7f020002;
+        public static final int drink_thumb=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int ic_photo_gallery=0x7f020005;
+        public static final int iphone_camera_icon=0x7f020006;
+        public static final int sunflower=0x7f020007;
+        public static final int sunflower_thumb=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f080004;
-        public static final int drawing_image=0x7f080000;
-        public static final int from_gallery=0x7f080002;
-        public static final int select_image_text=0x7f080001;
-        public static final int take_photo=0x7f080003;
+        public static final int abstract_art=0x7f09000b;
+        public static final int action_settings=0x7f09000c;
+        public static final int brush=0x7f090001;
+        public static final int brush_size=0x7f090003;
+        public static final int drawing_image=0x7f090000;
+        public static final int drink=0x7f090009;
+        public static final int editors=0x7f090002;
+        public static final int from_gallery=0x7f090007;
+        public static final int reset_button=0x7f090005;
+        public static final int select_image_text=0x7f090006;
+        public static final int sunflower=0x7f09000a;
+        public static final int take_photo=0x7f090008;
+        public static final int x_to_x=0x7f090004;
     }
     public static final class layout {
         public static final int activity_draw=0x7f030000;
         public static final int activity_image_selection=0x7f030001;
+        public static final int activity_select_static_image=0x7f030002;
+        public static final int sample_grey_drawable=0x7f030003;
     }
     public static final class menu {
-        public static final int draw=0x7f070000;
-        public static final int image_selection=0x7f070001;
+        public static final int draw=0x7f080000;
+        public static final int image_selection=0x7f080001;
+        public static final int select_static_image=0x7f080002;
     }
     public static final class string {
+        public static final int abstract_art=0x7f050009;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int hello_world=0x7f050006;
+        public static final int brush=0x7f05000c;
+        public static final int color=0x7f05000b;
+        public static final int drink=0x7f050007;
+        public static final int extra_space=0x7f05000d;
+        public static final int reset_button=0x7f05000a;
         public static final int select_from_gallery=0x7f050003;
         public static final int select_image=0x7f050002;
+        public static final int sunflower=0x7f050008;
         public static final int take_photo=0x7f050004;
         public static final int title_activity_draw=0x7f050005;
+        public static final int title_activity_select_static_image=0x7f050006;
     }
     public static final class style {
         /** 
@@ -69,10 +132,88 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a GreyDrawable.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #GreyDrawable_exampleColor com.example.greyarea:exampleColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #GreyDrawable_exampleDimension com.example.greyarea:exampleDimension}</code></td><td></td></tr>
+           <tr><td><code>{@link #GreyDrawable_exampleDrawable com.example.greyarea:exampleDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #GreyDrawable_exampleString com.example.greyarea:exampleString}</code></td><td></td></tr>
+           </table>
+           @see #GreyDrawable_exampleColor
+           @see #GreyDrawable_exampleDimension
+           @see #GreyDrawable_exampleDrawable
+           @see #GreyDrawable_exampleString
+         */
+        public static final int[] GreyDrawable = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.example.greyarea.R.attr#exampleColor}
+          attribute's value can be found in the {@link #GreyDrawable} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.greyarea:exampleColor
+        */
+        public static final int GreyDrawable_exampleColor = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.example.greyarea.R.attr#exampleDimension}
+          attribute's value can be found in the {@link #GreyDrawable} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.greyarea:exampleDimension
+        */
+        public static final int GreyDrawable_exampleDimension = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.example.greyarea.R.attr#exampleDrawable}
+          attribute's value can be found in the {@link #GreyDrawable} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.example.greyarea:exampleDrawable
+        */
+        public static final int GreyDrawable_exampleDrawable = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.example.greyarea.R.attr#exampleString}
+          attribute's value can be found in the {@link #GreyDrawable} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.greyarea:exampleString
+        */
+        public static final int GreyDrawable_exampleString = 0;
+    };
 }

@@ -36,6 +36,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.greyarea.ImageSelection" />
         </activity>
+        <activity
+            android:name="com.example.greyarea.SelectStaticImage"
+            android:label="@string/title_activity_select_static_image"
+            android:parentActivityName="com.example.greyarea.ImageSelection" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.greyarea.ImageSelection" />
+        </activity>
     </application>
 
 </manifest>

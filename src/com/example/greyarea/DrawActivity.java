@@ -5,7 +5,11 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.ImageView.ScaleType;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -25,10 +29,59 @@ public class DrawActivity extends Activity {
 		//get intent for information
 		Intent intent = getIntent();
 		String imagePath = intent.getStringExtra("imagefile");
-		Log.d("Image File Path", imagePath);
-		ImageView image = (ImageView) findViewById(R.id.drawing_image);
-		Bitmap imageBitmap = BitmapFactory.decodeFile(imagePath);
+		GreyDrawable image = (GreyDrawable) findViewById(R.id.drawing_image);
+		Bitmap imageBitmap;
+		if(intent.getBooleanExtra("preloaded", false)){
+			if(imagePath.equals("drink")){
+				imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.drink);
+			}else if(imagePath.equals("sunflower")){
+				imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.sunflower);
+			}else{
+				imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.abstract_art);
+			}
+		} else{
+			imageBitmap = BitmapFactory.decodeFile(imagePath);			
+		}
 		image.setImageBitmap(imageBitmap);
+		
+		Spinner brushSize = (Spinner) findViewById(R.id.brush_size);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, 
+				R.array.brush_size, android.R.layout.simple_spinner_dropdown_item);
+		//Define layout for when displaying choices
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		//Apply adapter to spinners
+		brushSize.setAdapter(adapter);
+		brushSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
+				GreyDrawable canvasView = (GreyDrawable) findViewById(R.id.drawing_image);
+				canvasView.setBrushWidth((pos +1) * 10);
+			}
+			
+			@Override
+			public void onNothingSelected(AdapterView<?> parent){
+				return;
+			}
+		});
+		Spinner toColor = (Spinner) findViewById(R.id.x_to_x);
+		ArrayAdapter<CharSequence> toColorAdapter = ArrayAdapter.createFromResource(this, 
+				R.array.to_color, android.R.layout.simple_spinner_dropdown_item);
+		//Define layout for when displaying choices
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		//Apply adapter to spinners
+		toColor.setAdapter(toColorAdapter);
+		toColor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
+				GreyDrawable greyDrawable = (GreyDrawable) findViewById(R.id.drawing_image);
+				greyDrawable.setConversion(pos);
+			}
+			
+			@Override
+			public void onNothingSelected(AdapterView<?> parent){
+				return;
+			}
+		});
 	}
 
 	/**
@@ -63,6 +116,11 @@ public class DrawActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void reset(View view){
+		GreyDrawable greyDrawable = (GreyDrawable) findViewById(R.id.drawing_image);
+		greyDrawable.resetImage();
 	}
 
 }

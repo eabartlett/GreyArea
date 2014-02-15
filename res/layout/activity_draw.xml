@@ -7,10 +7,43 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".DrawActivity" >
-	<Canvas 
+    
+    <com.example.greyarea.GreyDrawable 
 	    android:id="@+id/drawing_image"
-	    android:layout_width="wrap_content"
+	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
 	    android:contentDescription=""/>
+    <TextView 
+        android:id="@+id/brush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editors"
+        android:text="@string/brush"/>
+
+    <LinearLayout
+        android:id="@id/editors"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        <Spinner
+	        android:id="@+id/brush_size"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+	    
+	    <Spinner
+	        android:id="@+id/x_to_x"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+	    
+	    <Button
+	        android:id="@+id/reset_button"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/reset_button" 
+	        android:onClick="reset"/>
+	    </LinearLayout>
+    
 
 </RelativeLayout>

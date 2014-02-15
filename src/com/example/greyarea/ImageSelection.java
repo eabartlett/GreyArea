@@ -34,16 +34,27 @@ public class ImageSelection extends Activity {
 		return true;
 	}
 	
+	/* Sends intent to select from pre-loaded images */
+	public void selectPreloadedIntent(View view){
+		Intent selectPreloaded = new Intent(this, SelectStaticImage.class);
+		startActivity(selectPreloaded);
+	}
+	
 	/* Method called when Take A Photo is selected */
 	public void takePicture(View view){
 		boolean pictureTaken = dispatchTakePictureIntent();
 		Log.i("pictureTaken", String.valueOf(pictureTaken));
 		if(!pictureTaken){
-			Intent photoError = this.getIntent();
-			photoError.putExtra("error", true);
-			startActivity(photoError);
+			photoLoadError();
 		}
 	}
+
+	private void photoLoadError() {
+		Intent photoError = this.getIntent();
+		photoError.putExtra("error", true);
+		startActivity(photoError);
+	}
+	
 	/* Send intent to take a picture to camera application
 	 * save file to gallery if photo created, else go back to 
 	 * starting activity
@@ -60,8 +71,8 @@ public class ImageSelection extends Activity {
 			}
 			if (photoFile != null){
 				takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+				takePictureIntent.putExtra("preloaded", false);
 				startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-				addGalleryPic();
 				return true;
 			}
 		}
@@ -73,9 +84,9 @@ public class ImageSelection extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 		if(requestCode == REQUEST_IMAGE_CAPTURE){
 			if(resultCode == RESULT_OK){
-				//start drawing
+				Log.d("Activity Change", "Going into Drawing Activity");
 				Intent startDrawing = new Intent(this, DrawActivity.class);
-				startDrawing.putExtra("imagefile" , myCurrentPhotoPath);
+				startDrawing.putExtra("imagefile", myCurrentPhotoPath);
 				startActivity(startDrawing);
 			}
 		}
@@ -97,13 +108,5 @@ public class ImageSelection extends Activity {
 		return image;
 	}
 	
-	/* Add picture just taken to phone's photo gallery */
-	private void addGalleryPic(){
-		Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-		File f = new File(myCurrentPhotoPath);
-		Uri contentUri = Uri.fromFile(f);
-		mediaScanIntent.setData(contentUri);
-		this.sendBroadcast(mediaScanIntent);
-	}
 
 }

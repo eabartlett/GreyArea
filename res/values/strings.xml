@@ -7,6 +7,23 @@
     <string name="select_from_gallery">Select Image from Gallery</string>
     <string name="take_photo">Take a Photo</string>
     <string name="title_activity_draw">DrawActivity</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_select_static_image">Select Preloaded Image</string>
+    <string name="drink">A Sunrise Cocktail</string>
+    <string name="sunflower">Sunflower Field</string>
+    <string name="abstract_art">Modern Art</string>
+    <string name="reset_button">Reset Image</string>
+    <string name="color">Conversion Color</string>
+    <string name="brush">Brush Size</string>
+    <string name="extra_space">     </string>
+    <string-array name="brush_size">
+	    <item>5</item>
+	    <item>10</item>
+	    <item>15</item>
+	    <item>20</item>
+	</string-array>
+	<string-array name="to_color">
+	    <item>Color to Greyscale</item>
+	    <item>Greyscale to Color</item>
+	</string-array>
 
 </resources>
