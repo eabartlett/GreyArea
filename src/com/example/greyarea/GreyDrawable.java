@@ -72,7 +72,7 @@ public class GreyDrawable extends View {
 						try {
 							mainBitmap.setPixel(i, j, toColor);
 						} catch (IllegalStateException e) {
-//							Log.i("Error", "Tried to set pixel at" + String.valueOf(i));
+							Log.i("Error", "Tried to set pixel at" + String.valueOf(i));
 						}
 					}
 				}
@@ -87,7 +87,7 @@ public class GreyDrawable extends View {
 		if(event.getX() < mainBitmap.getWidth() && event.getY() < mainBitmap.getHeight()){
 			switch(event.getAction()){
 				case MotionEvent.ACTION_DOWN:
-					touchDown( event.getX(), event.getY());
+					touchDown(event.getX(), event.getY());
 					break;
 				case MotionEvent.ACTION_MOVE:
 					touchMove(event.getX(), event.getY());
